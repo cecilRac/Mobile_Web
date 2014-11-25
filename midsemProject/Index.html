@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel = "stylesheet" href = "jquery/jquery.mobile-1.4.4.min.css">
+	<script src = "jquery/jquery-1.11.1.min.js"></script>
+	<script src = "jquery/jquery.mobile-1.4.4.min.js"></script>
+
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+	</script>
+
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+	</script>
+
+	<script>
+	function initialize()
+	{	
+		var mapProp = {
+			center:new google.maps.LatLng(5.7595729,-0.2201503),
+			zoom:8,
+			mapTypeId:google.maps.MapTypeId.ROADMAP
+		};
+		var map=new google.maps.Map(document.getElementById("googleMap")
+			,mapProp);
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+	if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+       position.coords.longitude);
+
+      //Store the person's location in the form
+      var myLat = position.coords.latitude;
+      var myLong = position.coords.longitude;
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Me'
+      });
+
+      var destLat = '<?php echo $destLat; ?>';
+      var destLong = '<?php echo $destLong; ?>';
+      var destName = '<?php echo $dest; ?>';
+       map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+
+  	 
+	</script>
+
+	<meta name="viewport" content="width-device-width, initial-scale=1">?
+
+
+
+</head>
+
+
+<body>
+
+
+<!--Page One-->
+<div data-role = "page" id = "pageone">
+	<div data-role = "header">
+		<h1> Welcome to Rac cafe</h1>
+
+		
+		<div data-role = "navbar">
+			<ul>
+		<li><a href = "#pageone" data-role = "button" data-icon = "home" data-iconpos="left" data-transition = "slide" class=" ui-btn-active ui-state-persist">Home</a>
+
+		<!-- <li><a href = "# " data-role = "button" data-icon = "search" data-iconpos="left">Search</a> -->
+		
+
+		
+		
+		<li><a href = "#pagetwo" data-role = "button"  data-icon = "forward" data-transition = "slide">Place Order</a>
+		
+	
+			</ul>
+		</div>
+	
+
+
+		<div data-role ="collapsible">
+
+			<h2><a href=""> Current Menu </a></h2>
+					
+			  <li>Waakye & Fish</li>
+			  <li>Jollof & Chicken</li>
+			  <li>Plain rice & Palava sauce </li>
+			  <li>Fruit Salad </li>
+
+		</div>
+
+		<div data-role ="collapsible">
+			<h2> Track Delivery </h2>
+
+			  
+			   <!-- 	<li>(you can only use this feature after you have placed an order) </li> 
+			   	<label >Please Enter customer Id: </label>
+				<input type="text" name ="vconsumerId" id="vconsumerId">
+				 -->
+
+			   	<li><a href="https://www.google.com/maps/?q=5.5675700,-0.1819970" target="_blank" data-role = "button" id="bus">Track Now </a> 
+
+			   	</li>
+
+			   	
+
+		</div>	
+	</div>
+			
+
+
+
+		<div data-role = "footer">
+			<h1> </h1>
+		</div>
+</div>
+
+
+
+<!--Page Two-->
+
+<div data-role = "page" id = "pagetwo" data-theme="b">
+	<div data-role = "header">
+		<div data-role = "navbar">
+			<ul>
+				<li>Enter accurate Information for a better experience</li>
+				<li>Random</li>
+				<li><a href = "#" data-transition = "pop" data-role = "button" data-rel = "back">Back</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div>
+	</br>
+		<form action="http://50.63.128.135/~csashesi/class2015/cecil-arthur/midsem/orderInput.php" method="POST">
+
+			<div data-role="fieldcontain">
+				<label >Meal: </label>
+				<select name="mealName" id="mealName" >
+				<option value=" ">Please select meal </option>	
+				<option value="waakye">Waakye & Fish </option>
+				<option value="jollof">Jollof & Chicken </option>
+				<option value="Plain rice">Plain rice & Palava sauce </option>
+				<option value="Fruit Salad">Fruit Salad </option>
+				</select>
+				
+				
+				<label >Student Id: </label>
+				<input type="text" name ="consumerId" id="consumerId">
+
+				<label> Name: </label>
+				<input type ="text" name="consumerName" id="consumerName" >
+
+				<label>Any comment about your food? (optional): </label>
+				<input type="text" name ="comment" id="comment"> </input>
+				<label>  </label>
+				<button type ="submit" value="submit"  name="submit">Place Order :-)</button>
+
+			</div>	
+
+		</form>
+	</div>
+
+</div>
+</body>
+
+</html>
