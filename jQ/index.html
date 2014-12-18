@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel = "stylesheet" href = "jquery/jquery.mobile-1.4.4.min.css">
+	<script src = "jquery/jquery-1.11.1.min.js"></script>
+	<script src = "jquery/jquery.mobile-1.4.4.min.js"></script>
+
+
+	<meta name="viewport" content="width-device-width, initial-scale=1">
+
+
+</head>
+
+
+<body>
+
+
+<!--Page One-->
+<div data-role = "page" id = "pageone">
+	<div data-role = "header">
+		<h1> Check-in</h1>
+
+		
+		<div data-role = "navbar">
+			<ul>
+		<li><a href = "#pageone" data-role = "button" data-icon = "home" data-iconpos="left" data-transition = "slide" class=" ui-btn-active ui-state-persist">Home</a>
+
+		<!-- <li><a href = "# " data-role = "button" data-icon = "search" data-iconpos="left">Search</a> -->
+		
+
+		
+		
+		<li><a href = "#pagetwo" data-role = "button"  data-icon = "forward" data-transition = "slide">Contact us</a>
+		
+	
+			</ul>
+		</div>
+	
+
+
+		<div data-role ="collapsible">
+
+			<h2><a href=""> Register </a></h2>
+				
+				<form action="http://50.63.128.135/~csashesi/class2015/cecil-arthur/Final/website/jQ/register.php" method="POST">
+
+					<label> Name: </label>
+					<input type="text" name ="name" id="name">
+
+
+					<label> Email:</label>
+					<input type="email" name="email" id="email"></input>
+
+					<label> phone number: </label>
+					<input type="tel" name="number" id="number"></input>
+
+					<label>Organization </label>
+                    <input type="text" name="organization" id="organization"></input>
+					
+
+					<button  type ="submit" > Sign Up! </button>
+
+		    	</form>
+
+
+		</div>
+
+		<div data-role ="collapsible">
+			<h2> Register via phone </h2>
+
+			  
+			  
+
+			   	<li>
+			   		Call us on <a href="tel:+233266120108"> 0266120108</a>
+			   	</li>
+
+			   	
+
+		</div>	
+	</div>
+			
+
+
+
+		<div data-role = "footer">
+			<h1> </h1>
+		</div>
+</div>
+
+
+
+<!--Page Two-->
+
+<div data-role = "page" id = "pagetwo" data-theme="b">
+	<div data-role = "header">
+		<div data-role = "navbar">
+			<ul>
+				<li>Be patient after you send us a message.We will try and get back to you As Soon As Possible</li>
+				
+				<li><a href = "#" data-transition = "pop" data-role = "button" data-rel = "back">Back</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div>
+	</br>
+		<form action="http://50.63.128.135/~csashesi/class2015/cecil-arthur/Final/website/jQ/inquire.php" method="POST">
+
+			<div data-role="fieldcontain">
+						
+				
+				<label >Name: </label>
+				<input type="text" name ="name" id="name">
+
+				<label> Email: </label>
+				<input type ="text" name="email" id="email" >
+
+				<label> Telephone: </label>
+				<input type ="tel" name="phone" id="phone" >
+
+				<label>Message: </label>
+				<input type="text" name ="message" id="message"> </input>
+				<label>  </label>
+				<button type ="submit" value="submit"  name="submit">Send Message</button>
+
+			</div>	
+
+		</form>
+	</div>
+
+</div>
+</body>
+
+</html>
